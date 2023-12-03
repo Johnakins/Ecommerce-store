@@ -2,7 +2,7 @@ import { products } from "@/utils/products";
 import Container from "./components/Container";
 import HeroBanner from "./components/HeroBanner";
 import { truncatetext } from "@/utils/truncatetext";
-import ProductCard from "./product/ProductCard";
+import ProductCard from "./products/ProductCard";
 
 
 export default function Home() {
