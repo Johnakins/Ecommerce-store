@@ -3,6 +3,7 @@
 import { Rating } from "@mui/material"
 import {useCallback, useState} from "react"
 import SetColor from "../SetColor"
+import SetQuantity from "../SetQuantity"
 
 interface ProductDetailsProps {
     product: any
@@ -31,7 +32,7 @@ const Horizontal = () => {
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
 
-    const [CartProduct, setCartProduct] = useState<CartProductType>({
+    const [cartProduct, setCartProduct] = useState<CartProductType>({
         id: product.id,
         name: product.name,
         description: product.description,
@@ -46,7 +47,25 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         setCartProduct((prev)=>{
             return {...prev, selectedImg: value}
         })
-    }, [CartProduct.selectedImg])
+    }, [cartProduct.selectedImg])
+
+    const handleQtyIncrease = useCallback(()=>{
+        if (cartProduct.quantity === 99){
+            return
+        }
+        setCartProduct((prev)=>{
+            return {...prev, quantity: ++prev.quantity}
+        })
+    }, [cartProduct])
+
+    const handleQtyDecrease = useCallback(()=>{
+        if (cartProduct.quantity === 1){
+            return
+        }
+        setCartProduct((prev)=>{
+            return {...prev, quantity: ++prev.quantity}
+        })
+    }, [cartProduct])
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -71,11 +90,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
             <Horizontal/>
             <SetColor 
              images={product.images}
-             cartProduct={CartProduct}
+             cartProduct={cartProduct}
              handleColorSelect={handleColorSelect}
             />
             <Horizontal/>
-            <div>quantity</div>
+            <SetQuantity
+            cartProduct={cartProduct}
+            handleQtyIncrease={handleQtyIncrease}
+            handleQtyDecrease={handleQtyDecrease}
+            />
             <Horizontal/>
             <div>add to cart</div>
         </div>
