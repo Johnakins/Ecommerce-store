@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react"
-import { CartProductType } from "./[productid]/ProductDetails"
+import { CartProductType } from "../../products/[productid]/ProductDetails"
 
 interface SetQtyProps {
     cartCounter?: boolean,

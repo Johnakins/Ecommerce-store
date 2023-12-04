@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import { CartProductType, SelectedImgType } from "./[productid]/ProductDetails"
+import { CartProductType, SelectedImgType } from "../../products/[productid]/ProductDetails"
 
 interface ProductImageType {
     cartProduct: CartProductType,

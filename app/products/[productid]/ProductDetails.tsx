@@ -2,10 +2,10 @@
 
 import { Rating } from "@mui/material"
 import {useCallback, useState} from "react"
-import SetColor from "../SetColor"
-import SetQuantity from "../SetQuantity"
-import Button from "../Button"
-import ProductImage from "../ProductImage"
+import SetColor from "../../components/products/SetColor"
+import SetQuantity from "../../components/products/SetQuantity"
+import Button from "../../components/products/Button"
+import ProductImage from "../../components/products/ProductImage"
 
 interface ProductDetailsProps {
     product: any
